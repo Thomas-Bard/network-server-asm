@@ -18,4 +18,4 @@ And then you link it
 Note :
 I know about the warnings that say "register size blah blah blah", I don't care, I just wrote somewhere something like
     mov [smth], byte al
-I did it for readability purpose. You don't like it, I don't care
+I did it for readability purpose. You don't like it, I don't give a single everloving fuck about what you think
