@@ -10,12 +10,21 @@ Thanks to that project I have been able to elevate, and join the elite supremacy
 
 # How the hell can I use it ?
 Well, first you need an assembler, here I used the Netwide Assembler on linux also known as NASM.
-You assemble it using this command :
+You assemble it using this command : <br>
     nasm -f elf64 -o object_file.o network.asm
-And then you link it
+And then you link it : <br>
     ld -o network object_file.o
+ 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# How does it work ?
+By default it supplies the client with what it wrote in the URL, e.g if the url is (whatever the fuck your ip is):8001/bollocks.gay it will gently send back the file bollocks.gay and if does not exits, it will just send a 2048 null-bytes blank packet with the http header corresponding to the 404 status code. It only supports basic http requests. Don't try to send weirdass requests, it will probably just bug out, and if not just trigger a segmentation fault. When a blank HTTP request is sent (with the path "/"), it supplies the client with a file named index.html. If there aren't no file named like that, it will just send back a blank packet of 2048 bytes with the http header corresponding to the status code 404. It has no way of excluding folders and file at the moment therefore making it unsuitable for any kind of use other than flexing over virgin JavaScript/PHP users.
 
-Note :
-I know about the warnings that say "register size blah blah blah", I don't care, I just wrote somewhere something like
-    mov [smth], byte al
-I did it for readability purpose. You don't like it, I don't give a single everloving fuck about what you think
+Why a blank packet of 2048 bytes, you may ask ? Well it's beacause I'm planning for support of 404 html pages but for the moment it's just null-bytes. If you're not happy with it, as I said earlier, I don't give a fuck. 
+
+If you share my point of you and also hate new-age "programmer" then you and I will be friend.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Note :
+I know about the warnings that say "register size blah blah blah", I don't care, I just wrote somewhere something like <br>
+    mov [smth], byte al <br>
+I did it for readability purpose. You don't like it, I don't give a single everloving fuck about what you think.
