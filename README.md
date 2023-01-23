@@ -24,7 +24,4 @@ Why a blank packet of 2048 bytes, you may ask ? Well it's beacause I'm planning 
 If you share my point of you and also hate new-age "programmer" then you and I will be friend.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Note :
-I know about the warnings that say "register size blah blah blah", I don't care, I just wrote somewhere something like <br>
-    mov [smth], byte al <br>
-I did it for readability purpose. You don't like it, I don't give a single everloving fuck about what you think.
+

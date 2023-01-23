@@ -19,13 +19,6 @@
 %define URL_MAX_LENGTH 0xFF
 %define MAX_DATA_LENGTH 0xFFFFF
 
-struc sockaddr_in
-	.sin_family resw 1
-	.sin_port resw 1
-	.sin_addr resd 1
-	.sin_zero resb 8
-endstruc
-
 section .data
 http_header: times 30 db 0
 header_len: equ $ - http_header
@@ -70,10 +63,10 @@ _start:
 	cmp rax, 0
 	jl error
 
-	mov [socket_fd], dword rax
+	mov [socket_fd], rax
 
 	mov rax, SYS_BIND
-	mov dword rdi, [socket_fd]
+	mov rdi, [socket_fd]
 	mov rsi, socket_addr
 	mov rdx, socket_addri_len
 	syscall
@@ -82,7 +75,7 @@ _start:
 	jl error
 
 	mov rax, SYS_LISTEN
-	mov dword rdi, [socket_fd]
+	mov rdi, [socket_fd]
 	mov rsi, 0x05
 	syscall
 
@@ -99,7 +92,7 @@ accept_connection:
 	cmp rax, 0
 	jl error
 
-	mov [client_socket_fd], dword rax
+	mov [client_socket_fd], rax
 
 	; Let's print out what the socket has
 
